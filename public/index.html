@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transporter Scheduling System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>Transporter Scheduling System</h1>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section id="login-section">
+      <h2>Login</h2>
+      <form id="login-form">
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+          <label for="role">Role:</label>
+          <select id="role" name="role">
+            <option value="user">User</option>
+            <option value="transporter">Transporter</option>
+          </select>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </section>
+
+    <section id="user-dashboard" style="display: none;">
+      <h2>User Dashboard</h2>
+      <button id="initiate-shipment">Initiate Shipment</button>
+      <!-- Additional user-specific functionality goes here -->
+    </section>
+
+    <section id="transporter-dashboard" style="display: none;">
+      <h2>Transporter Dashboard</h2>
+      <ul id="shipment-requests">
+        <li>No shipment requests available</li>
+      </ul>
+      <!-- Additional transporter-specific functionality goes here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Transporter Scheduling System</p>
+  </footer>
+
+  <script>
+    // JavaScript to handle login and role-based dashboard visibility
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const role = document.getElementById('role').value;
+
+      // Hide login form
+      document.getElementById('login-section').style.display = 'none';
+
+      // Show appropriate dashboard
+      if (role === 'user') {
+        document.getElementById('user-dashboard').style.display = 'block';
+      } else if (role === 'transporter') {
+        document.getElementById('transporter-dashboard').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
